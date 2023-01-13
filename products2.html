@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Kenia&family=Nerko+One&family=Zen+Dots&display=swap"
+    rel="stylesheet">
+    <title>know which of our products suits u the best</title>
+</head>
+<style>
+    * {
+        background-image: url(https://media.istockphoto.com/id/1200557416/photo/organic-herbal-cosmetic-products-on-green-background-top-view-beauty-spa-cosmetic-bottle.jpg?s=170667a&w=0&k=20&c=b5XPjmsYWaT5SrJK5HHOTXu1xktuS20AI4cKkft7RDg=);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        opacity: 1;
+    }
+
+    .logohome {
+        display: flex;
+        justify-content: center;
+    }
+    img {
+        height: 150px;
+        border-radius: 100px;
+    }
+    .con {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+h3{
+    text-transform: uppercase;
+    font-size: 20px;
+
+}
+/* ------css for button-------- */
+.submit{
+    display: flex;
+    justify-content: center;
+    
+}
+
+button{
+font-size: 20px;
+ font-weight: bolder;
+padding: 5px;
+cursor: pointer;
+border-radius: 10px 0PX 10PX 0PX;
+
+}
+button:hover{
+    /* color:rgb(94,243, 101); */
+    
+    color: orangered;
+}
+p {
+    font-size: 20px;
+}
+</style>
+
+<body>
+    <div class="logohome">
+        <a href="index.html"> <img src="newlogo.jpg"></a>
+    </div>
+    <div class="con">
+        <div class="form">
+                <h3>choose your skin type</h3>
+               <a href="https://www.youtube.com/watch?v=m65iXnmp68Q"><p>know your skin type</p></a>
+                <input type="radio" id="noramlskin" name="grp1">NORMAL SKIN<br>
+                <input type="radio" id="oilyskin" name="grp1">OILY SKIN<br>
+                <!-- <input type="radio" id="dullskin" name="grp1">DULL SKIN<br> -->
+                <input type="radio" id="dryskin" name="grp1">DRY SKIN<br>
+                <input type="radio" id="combinationalskin" name="grp1">COMBINATIONAL SKIN<br>
+                <br><br>
+                <h3>choose your skin problem</h3>
+                <input type="radio" id="pimples" name="grp2" value="avacado face cream">PIMPLES</input><br>
+                <input type="radio" id="blackheads" name="grp2" value="almond face cream">BLACKHEADS</input><br>
+                <input type="radio" id="acne" name="grp2" value="rose face cream">ACNE</input><br>
+                <input type="radio" id="tan" name="grp2" value="avacado face cream">TAN</input><br>
+                <input type="radio" id="dullness" name="grp2" value="avacado face cream">DULLNESS</input>
+                <br><br>
+               <div class="submit"><button type="submit" onclick="submit()">SUBMIT</button></div>
+        </div>
+    </div>
+</body>
+<script>
+   function submit(){
+    const st1=document.getElementById("noramlskin");
+    const st2=document.getElementById("oilyskin");
+    const st3=document.getElementById("dullskin");
+    const st4=document.getElementById("dryskin");
+    const st5=document.getElementById("combinationalskin");
+    const st6=document.getElementById("pimples");
+    const st7=document.getElementById("blackheads");
+    const st8=document.getElementById("acne");
+    const st9=document.getElementById("tan");
+    const st10=document.getElementById("dullness");
+
+    if (st1&&st6.checked==true) {
+        alert("ALMOND FACE CREAM suits you the best")
+    } else if (st1,st7.checked==true) {
+        alert("AVACADO FACE CREAM  suits you the best")
+    } else if (st1,st8.checked==true) {
+        alert("PEARL FACE CREAM  suits you the best")
+    } else if (st1,st9.checked==true) {
+        alert("ROSE FACE CREAM  suits you the best")
+    } else if (st1,st10.checked==true) {
+        alert("INSTANT FACE CREAM  suits you the best")
+    } else if (st2,st6.checked==true) {
+        alert("INSTANT FACE CREAM  suits you the best")
+    } else if (st2,st7.checked==true) {
+        alert("INSTANT FACE CREAM  suits you the best")
+    } else if (st2,st8.checked==true) {
+        alert("INSTANT FACE CREAM  suits you the best")
+    } else if (st2,st9.checked==true) {
+        alert("INSTANT FACE CREAM  suits you the best")
+    } else if (st2,st10.checked==true) {
+        alert("INSTANT FACE CREAM  suits you the best")
+    } else{
+        alert("enter input")
+    }
+   }
+    
+</script>
+
+</html>

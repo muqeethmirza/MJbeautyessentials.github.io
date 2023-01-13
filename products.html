@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUCTS LIST</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kenia&family=Zen+Dots&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kenia&family=Nerko+One&family=Zen+Dots&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="project.js"></script>
+</head>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+
+    }
+
+    .bgbody {
+        background-image: url(https://media.istockphoto.com/id/1200557416/photo/organic-herbal-cosmetic-products-on-green-background-top-view-beauty-spa-cosmetic-bottle.jpg?s=170667a&w=0&k=20&c=b5XPjmsYWaT5SrJK5HHOTXu1xktuS20AI4cKkft7RDg=);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-size: cover;
+        opacity: 1;
+        z-index: -1;
+    }
+
+    /* -------css for container (navbar,logo)-------- */
+    .logo {
+        cursor: pointer;
+    }
+
+    .logo img {
+        border-radius: 120px;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 0px 25px;
+    }
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+    }
+
+    nav {
+        flex: 1;
+        text-align: right;
+    }
+
+    nav ul {
+        display: inline-block;
+        list-style: none;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        font-size: 25px;
+        padding: 10px;
+        text-transform: uppercase;
+        color: black;
+        font-family: 'Nerko One', cursive;
+    }
+
+    li a:hover {
+        background-color: rgb(94, 243, 101);
+        border: 2px solid white;
+        border-radius: 25px 0px 25px 0px;
+    }
+
+    .sk {
+        display: none;
+    }
+
+    /* -------CSS FOR PRODUCTS CONTAINER AND PRODUCT CARDS--------- */
+    .containerfp {
+        margin: 10px 50px;
+        padding: 0px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .product {
+        border-radius: 20px;
+        text-align: center;
+        margin: 20px 10px;
+        transition: 0.1s;
+        background-color: rgb(252, 250, 250);
+    }
+
+    .product h3 {
+        font-size: 25px;
+        margin: 0px;
+    }
+
+    .product p {
+        margin: 0px;
+    }
+
+    .product img {
+        border-radius: 20px;
+        width: 250px;
+    }
+
+    .product:hover {
+        transform: translate(0px, -5px);
+        box-shadow: 5px 5px 20px black;
+        cursor: pointer;
+    }
+
+    .orderteext {
+        background-color: black;
+        color: white;
+        border-radius: 0px 0px 20px 20px;
+        font-size: 25px;
+        margin: 0px;
+    }
+
+    .fa {
+        color: orangered;
+        margin: 15px 0px
+    }
+
+    .fa-solid {
+        color: orangered;
+    }
+
+    /* ---------CSS FOR LINK TO REDIIRECT TOWARDS FORM---------- */
+    .form {
+        text-decoration: none;
+        font-size: 30px;
+        text-align: center;
+        background-color: white;
+        color: black;
+        border-radius: 20px;
+    }
+
+    /* ----------------css for footer-------- */
+    .footer {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: darkgray;
+
+    }
+
+    .h2 {
+        text-align: center;
+        background-color: gray;
+    }
+
+    .footer .col-2 {
+        width: 48%;
+        min-width: 300px;
+        margin: 0px 10px 10px 10px;
+        padding: 50px;
+    }
+
+    .footer .ct {
+        text-align: center;
+        font-size: 30px;
+        height: 50px;
+    }
+
+    /* --------css for copyright----------- */
+
+    .copyright {
+        text-align: center;
+        background-color: black;
+        color: white;
+    }
+
+    .copyright p {
+        font-family: cursive;
+    }
+
+    /* -----------css and media queries for responsiveness for navbar i.e hamburger------- */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        display: none;
+    }
+
+    .bar {
+        width: 30px;
+        height: 3px;
+        background-color: rgb(19, 1, 1);
+        margin: 3px;
+        -webkit-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+
+    @media only screen and (max-width:830px) {
+        .opt {
+            display: none;
+        }
+
+        .hamburger {
+            display: block;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
+        .menuitems {
+            display: none;
+        }
+
+        .menuitem .active {
+            display: block;
+            margin-right: 200px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin: auto;
+        }
+
+        .menuitems.active {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            top: 220px;
+            background-color: grey;
+            right: 0;
+            width: 100%;
+            margin: 5px;
+        }
+
+        .menuitems a {
+            display: block;
+            font-size: 20px;
+        }
+
+        li a:hover {
+            background-color: white;
+            margin-left: 20px;
+            border-radius: 10px;
+        }
+    }
+</style>
+
+<body>
+    <div class="bgbody">
+
+        <div class="container">
+
+            <div class="navbar">
+                <div class="logo">
+                    <img src="newlogo.jpg" alt="MJ BEAUTY ESSENTIALS" height="200px">
+                </div>
+                <nav>
+                    <ul class="menuitems">
+                        <li class="menuitem"><a href="index.html">home</a></li>
+                        <li class="menuitem"><a href="#" >products</a></li>
+                        <li class="menuitem"><a href="aboutus.html" >about us</a></li>
+                        <li class="menuitem"><a href="reviews.html"> reviews</a></li>
+                    </ul>
+                </nav>
+                <img class="sk"
+                    src="https://previews.123rf.com/images/jongjet303/jongjet3031703/jongjet303170300528/73849756-aper%C3%A7u-de-l-ic%C3%B4ne-du-panier-ic%C3%B4ne-pour-la-conception-du-site-web-logo.jpg"
+                    alt="shopping kart" height="35px" width="35px">
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+
+            </div>
+            <div class="form"><a class="form" href="products2.html">
+                    <marquee direction="right" behavior="alternate">----know which of our products suits you the best----
+                    </marquee>
+                </a>
+            </div>
+            <!-- -----------------------products----------- -->
+            <div class="containerfp">
+                <div class="product">
+                    <img src="https://media.istockphoto.com/id/1208865305/photo/facial-cream-in-an-open-glass-jar-with-a-golden-lid-next-to-fresh-chrysanthemum-buds-and-a.jpg?s=612x612&w=0&k=20&c=SCKVk_MqJsCniJtyhyJt3luOyJdhchPwFEhF43wg4lg="
+                        alt="special instant face whitening cream" height="200px">
+                    <h4>INSTANT FACE WHITENING<BR> CREAM(NIGHT)</h4>
+                    <p>Rs:1000</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="avacadocream.webp" height="200px">
+                    <h4>AVACADO FACE CREAM<BR>(NIGHT)</h4>
+                    <p>Rs:800</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="all herbs.jpg" height="200px">
+                    <h4>ALL HERBS FACE CREAM<BR>(NIGHT)</h4>
+                    <p>Rs:1000</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="almondface cream.jpg" height="200px">
+                    <h4>ALMOND FACE CREAM<BR>(DAY)</h4>
+                    <p>Rs:800</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="pearlcream.jpg" height="200px">
+                    <h4>PEARL FACE CREAM<BR>(DAY)</h4>
+                    <p>Rs:1000</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="rose cream.jpg" height="200px">
+                    <h4>ROSE FACE CREAM<BR>(DAY)</h4>
+                    <p>Rs:800</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="faceserum.jpg" height="200px">
+                    <h4>VITAMIN C<BR>SERUM</h4>
+                    <p>Rs:800</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="lipcream.jpg" height="200px">
+                    <h4>LIP CREAM<BR>(UNISEX)</h4>
+                    <p>Rs:500</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="facewash gold.jpg" height="200px">
+                    <h4>GOLD FACE <BR>WASH</h4>
+                    <p>Rs:1000</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="KESAR SOAP.jpg" height="200px">
+                    <h4>KESAR <BR>SOAP</h4>
+                    <p>Rs:1000</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="RROSE SOAP.jpg" height="200px">
+                    <h4>ROSE<BR>SOAP</h4>
+                    <p>Rs:1000</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="charcoal soap.jpg" height="200px">
+                    <h4>CHARCOAL <BR>SOAP</h4>
+                    <p>Rs:1000</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="BODY WHITENING CREAM W.jpg" height="200px">
+                    <h4>BODY WHITENING CREAM<BR>(WHITE)</h4>
+                    <p>Rs:1000</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="BODYWHITENING CREAM G.jpg" height="200px">
+                    <h4>BODY WHITENING CREAM<BR>(GOLD)</h4>
+                    <p>Rs:1000</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+                <div class="product">
+                    <img src="body whitening cream bw.jpg" height="200px">
+                    <h4>BODY WHITENING CREAM<BR>(BISQUE WHITE)</h4>
+                    <p>Rs:1000</p>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa-solid fa-star-half-stroke"></i>
+                    <p class="orderteext">Dm for order</p>
+                </div>
+            </div>
+
+            <div class="form"><a class="form" href="products2.html">
+                    <marquee direction="right" behavior="alternate">----know which of our products suits you the best----
+                    </marquee>
+                </a>
+            </div>
+
+        </div>
+
+
+
+        <!-- ---------footer------ -->
+
+        <div class="h2">
+            <h2>CONTACT US</h2>
+        </div>
+
+        <div class="footer">
+            <div class="col-2">
+                <h3>FOR ORDERS PLEASE CONTACT/DM US ON</h3>
+                <br><br>
+                <ul>
+                    <li>phone: 8639260312</li>
+                    <li><i class="fa-brands fa-instagram"></i>Instagram:Muqeethmirza</li>
+                    <li><i class="fa-brands fa-whatsapp"></i>Whatsapp:8639260312</li>
+                    <li><i class="fa-brands fa-snapchat"></i>snapchat:mmohd2489</li>
+                </ul>
+            </div>
+            <br><br>
+
+            <div class="col-2">
+                <h3>FOR QUERIES RELATED TO SHIPMENT--ORDER</h3>
+                <br><br>
+                <ul>
+                    <li>phone:7097865081</li>
+                    <li><i class="fa-brands fa-instagram"></i>Instagram:shaik jawad</li>
+                    <li><i class="fa-brands fa-whatsapp"></i>Whatsapp:7013093806</li>
+                    <li><i class="fa-brands fa-snapchat"></i>snapchat:coolest.badboi1</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">copyright 2022 - MJ BEAUTY ESSENTIALS</p>
+
+        <!-- ----------END OF WEBPAGE-------- -->
+
+        <script>
+
+           
+            const hamburger = document.querySelector(".hamburger");
+            const menuitems = document.querySelector(".menuitems");
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                menuitems.classList.toggle("active");
+            })
+        </script>
+</body>
+
+</html>
